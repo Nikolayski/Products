@@ -11,10 +11,7 @@ const MyProducts = props => {
     useEffect(() => {
         fetch('http://localhost:5000/products/myproducts/' + localStorage.getItem("email"))
             .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                SetProducts(data)
-            })
+            .then(data => SetProducts(data))
             .catch(error => console.log(error))
     }, [IsDeleted])
 
