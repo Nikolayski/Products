@@ -1,0 +1,11 @@
+.register-wrapper{
+    max-width:50%;
+    margin:50px auto;
+}
+
+.register-wrapper form {
+    display:  flex;
+    flex-direction: column;
+    width: 30%;
+    margin: auto;
+}

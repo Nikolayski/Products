@@ -1,0 +1,20 @@
+
+.navigation-header{
+    background: lightblue;
+    padding: 8px;
+}
+
+.navigation-links{
+    display: flex;
+    justify-content: space-around;
+    max-width: 40%;
+    margin:  auto;
+    list-style: none;
+}
+
+.navigation-links li *{
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 19px;
+}
+

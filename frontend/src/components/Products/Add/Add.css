@@ -1,0 +1,27 @@
+
+.add-product-wrapper{
+    max-width:30%;
+    margin: 50px auto;
+}
+
+.add-product-wrapper form{
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.add-product-theme{
+    border-radius: 15px;
+    padding: 5px;
+    
+}
+
+
+.add-product-description{
+    border-radius: 12px;
+    padding: 5px;
+    margin-top: 10px;
+}

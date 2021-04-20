@@ -1,0 +1,17 @@
+.products-cards-wrapper {
+    max-width:90%;
+    margin: 50px auto;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.product-card{
+    width:20%;
+    margin-right: 30px;
+    text-align: center;
+    border: 1px solid;
+}
+
+.product-card img{
+    width:100%;
+}
