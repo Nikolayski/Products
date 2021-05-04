@@ -29,6 +29,20 @@ router.get('/:id', function (req, res, next) {
     })
 })
 
+
+router.get('/collections/:type', function(req, res, next){
+    let type = req.params.type;
+    MongoClient.connect(url, function(err, db){
+        if(err) throw err;
+        var dbo = db.db('products-db');
+        dbo.collection('products').find({"theme": type}).toArray(function(err, arr) {
+            if(err) throw err;
+            res.send(arr);
+            db.close();
+        })
+    })
+})
+
 router.get('/myProducts/:email', function(req, res, next){
    let email = req.params.email;
     MongoClient.connect(url, function(err, db){

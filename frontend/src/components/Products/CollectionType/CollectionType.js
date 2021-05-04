@@ -1,50 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import './Products.css';
-import { Card, Select, MenuItem, InputLabel, Typography, Button, CardMedia, CardContent, CardActions, CardActionArea } from '@material-ui/core'
-import SelectTheme from './SelectTheme/SelectTheme';
+import { Card, CardActionArea, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
+import { Link, Redirect } from 'react-router-dom';
+import SelectTheme from '../SelectTheme/SelectTheme';
+import './CollectionType.css';
 
 
-const Products = props => {
+const CollectionType = props => {
 
-    const [products, SetProducts] = useState([]);
-    const [isLoaded, SetIsLoaded] = useState(false);
-
+    const [listOfTheme, SetlistofTheme] = useState([]);
+    const [isMounted, SetIsMounted] = useState(false);
 
     useEffect(() => {
-        let mounted = true;
-        fetch('http://localhost:5000/products')
+        fetch(`http://localhost:5000/products/collections/${props.match.params.type}`)
             .then(res => res.json())
-            .then(data => {
-                if (mounted) {
-                    SetProducts(data)
-                    SetIsLoaded(true);
-                }
-
-            })
+            .then(data =>  SetlistofTheme(data))
             .catch(error => console.log(error))
 
-        return () => {
-            mounted = false
+    }, [isMounted])
+
+    const themeHandler = e => {
+        if(e.target.value != "all"){
+            fetch(`http://localhost:5000/products/collections/${e.target.value}`)
+            .then(res => res.json())
+            .then(data => {
+                SetlistofTheme(data);
+                props.history.push(`/products/collections/${e.target.value}`)
+            })
+            .catch(error => console.log(error))   
         }
-    }, [])
-
-
-
-    if (!isLoaded) {
-        return (
-            <div style={{ maxWidth: '5%', margin: '40vh auto' }} className="loading-spinner-wrapper">
-                <img className="loading-spinner" style={{ width: '100%' }} src="https://icons8.com/preloaders/img/favicons/favicon-194x194.png" />
-            </div>
-        )
     }
 
     return (
         <div className="products-page-wrapper">
             <Link to="/products/add">Add product</Link>
-            <SelectTheme change={(e) => props.history.push(`/products/collections/${e.target.value}`)} />
+            <SelectTheme change={themeHandler} />
             <section className="products-cards-wrapper">
-                {products.map(x => (
+                {listOfTheme.map(x => (
                     <Card key={x._id} className="product-card" style={{ maxWidth: '100%' }}>
                         <CardActionArea>
                             <CardMedia style={{ height: '200px', objectFit: 'cover' }} image={x.image} title="Contemplative Reptile" />
@@ -63,7 +54,7 @@ const Products = props => {
                                 </Typography>
                             </CardContent>
                         </CardActionArea>
-                        <CardActions style={{ display: 'flex', justifyContent: 'center' }}>
+                        <CardActions style={{ display: 'flexx', justifyContent: 'center' }}>
                             <Link to={`/products/${x._id}`} style={{ background: 'lightblue', borderRadius: '10px', padding: '5px', textDecoration: 'none' }}>Details</Link>
                         </CardActions>
                     </Card>
@@ -73,8 +64,4 @@ const Products = props => {
     )
 }
 
-export default Products;
-
-
-
-
+export default CollectionType;

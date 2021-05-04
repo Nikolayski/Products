@@ -13,6 +13,7 @@ import Add from './components/Products/Add/Add';
 import Details from './components/Products/Details/Details';
 import Edit from './components/Products/Edit/Edit';
 import MyProducts from './components/Products/MyProducts/MyProducts';
+import CollectionType from './components/Products/CollectionType/CollectionType';
 
 function App() {
   const [email, SetEmail] = useState('');
@@ -38,6 +39,7 @@ function App() {
             <Route path="/products/:id" exact={true} component={Details} />
             <Route path="/products/edit/:id" exact={true} component={Edit} />
             <Route path="/myProducts" exact={true} component={MyProducts} />
+            <Route path="/products/collections/:type" exact={true} component={CollectionType} />
             <Route path="/authentication/register" exact={true} component={Register} />
             <Route path="/authentication/login" exact={true} component={Login} />
           </Switch>

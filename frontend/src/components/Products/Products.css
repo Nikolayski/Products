@@ -3,6 +3,7 @@
     margin: 50px auto;
     display: flex;
     justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .product-card{
@@ -10,8 +11,10 @@
     margin-right: 30px;
     text-align: center;
     border: 1px solid;
+    margin-bottom: 20px;
 }
 
 .product-card img{
     width:100%;
+
 }
