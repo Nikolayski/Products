@@ -17,3 +17,17 @@
 .product-card img{
     width:100%;
 }
+
+.products-buttons{
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.products-buttons-link{
+    text-decoration: none;
+    border: 1px solid;
+    border-radius: 12px;
+    padding: 3px;
+    margin-right: 10px;
+}

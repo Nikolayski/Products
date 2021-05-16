@@ -1,0 +1,22 @@
+.contact-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+}
+
+.contact-form{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.contact-form .form-control {
+    margin-bottom: 10px;
+}
+
+.contact-wrapper img:last-child{
+    width: 35%;
+}
+

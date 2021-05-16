@@ -41,8 +41,10 @@ const Products = props => {
 
     return (
         <div className="products-page-wrapper">
-            <Link to="/products/add">Add product</Link>
-            <SelectTheme change={(e) => props.history.push(`/products/collections/${e.target.value}`)} />
+            <div className="products-buttons">
+                <Link className="products-buttons-link" to="/products/add">Add product</Link>
+                <SelectTheme change={(e) => props.history.push(`/products/collections/${e.target.value}`)} />
+            </div>
             <section className="products-cards-wrapper">
                 {products.map(x => (
                     <Card key={x._id} className="product-card" style={{ maxWidth: '100%' }}>

@@ -72,7 +72,6 @@ router.post('/', function (req, res, next) {
             userEmail
         }
 
-        console.log('PRICE::::::: ' + price)
         dbo.collection('products').insertOne(product, (err, res) => {
             if (err) throw err;
             db.close();
