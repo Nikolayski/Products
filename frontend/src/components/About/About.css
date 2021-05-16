@@ -1,0 +1,88 @@
+.about-wrapper * {
+    padding: 5px;
+    text-align: center;
+    color: whitesmoke;
+}
+
+.about-wrapper  h1{
+   margin: 0;
+   font-size: 40px;
+}
+
+.about-wrapper  p {
+    font-size: 30px;
+}
+
+.about-wrapper div{
+    width: 300px;
+    height: 100px;
+    position: relative;
+    background-color: red;
+    animation-duration: 6s;
+    background: lightblue;
+  }
+
+.divs{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.divs img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+ .divs div{
+     width: 20%;
+    border-radius: 12px;
+ }
+
+  .div1{
+    animation-delay: 0s;
+    animation-name: example;
+    
+}
+
+.div2{
+    animation-delay: 3s;
+    margin-top: 60vh;
+    animation-name: example2;
+
+}
+
+.div3{
+    animation: example3 4s infinite;
+
+}
+
+
+  @keyframes example {
+    0%   {left:0px; top:0px;}
+    25%  { left:0px; top:60vh;}
+    50%  { left:39.7%; top:60vh;}
+    75%  { left:39.7%; top:60vh;}
+    100% {left:39.7%; top:60vh;} 
+  }
+
+  @keyframes example2 {
+    0%   { left:0px; top:0px;}
+    25%  { left:39.8%; top:0px;}
+    50%  { left:39.8%; top:-60vh;}
+    75% { left:39.8%; top:-60vh;}
+  }
+
+
+.about-info{
+    max-width: 70%;
+    margin: 30px auto;
+ 
+}
+
+  .about-info-content{
+      color: darkblue;
+      text-align: start;
+  }
