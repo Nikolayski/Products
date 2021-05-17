@@ -32,7 +32,7 @@ const Contact = props => {
                 </FormControl>
                 <Button variant="contained" color="primary" type="submit" >Send</Button>
             </form>
-            <img src='https://i.dlpng.com/static/png/6581188_preview.png' />
+            <img src='https://qph.fs.quoracdn.net/main-qimg-cac801530f86c7d4d3923cce62cb4233.webp' />
         </section>
 
     )

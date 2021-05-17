@@ -19,7 +19,7 @@ const Register = (props) => {
                 email: email.value,
                 password: password.value
             }
-            fetch('http://localhost:5000/register', {
+            fetch('http://localhost:5000/users/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(user)

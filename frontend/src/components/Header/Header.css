@@ -1,20 +1,40 @@
-
-.navigation-header{
+.navigation-header {
     background: lightblue;
     padding: 8px;
 }
 
-.navigation-links{
+.navigation-links {
     display: flex;
     justify-content: space-around;
     max-width: 40%;
-    margin:  auto;
+    margin: auto;
     list-style: none;
 }
 
-.navigation-links li *{
+.navigation-links li * {
     text-decoration: none;
     color: whitesmoke;
     font-size: 19px;
 }
+
+@media all and (max-width: 1600px) {
+    
+    .navigation-links{
+        max-width: 80%;
+    }
+}
+
+@media all and (max-width: 900px) {
+    
+    .navigation-links{
+        display: flex;
+        flex-direction: column;
+        max-width: 100%;
+    }
+    .navigation-links li{
+        text-align: center;
+ }
+  
+}
+
 

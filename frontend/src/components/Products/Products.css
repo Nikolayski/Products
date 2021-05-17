@@ -31,3 +31,18 @@
     padding: 3px;
     margin-right: 10px;
 }
+
+
+@media all and (max-width:800px){
+    .product-card{
+        width: 40%;
+        margin: 10px auto;
+    }
+}
+
+@media all and (max-width:400px){
+    .product-card{
+        width: 80%;
+        margin: 10px auto;
+    }
+}

@@ -48,8 +48,8 @@ const Products = props => {
             <section className="products-cards-wrapper">
                 {products.map(x => (
                     <Card key={x._id} className="product-card" style={{ maxWidth: '100%' }}>
-                        <CardActionArea>
-                            <CardMedia style={{ height: '200px', objectFit: 'cover' }} image={x.image} title="Contemplative Reptile" />
+                        <CardActionArea onClick={e => props.history.push(`/products/${x._id}`)}>
+                            <CardMedia  style={{ height: '300px', objectFit: 'cover' }} image={x.image} title="Contemplative Reptile" />
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="h2">
                                     {x.theme}
@@ -58,10 +58,10 @@ const Products = props => {
                                     Info:  {x.description}
                                 </Typography>
                                 <Typography variant="body2" color="textSecondary" component="p">
-                                    Price: {x.price}
+                                    Price: {x.price}$
                                 </Typography>
                                 <Typography variant="body2" color="textSecondary" component="p">
-                                    Creator: {x.userEmail}
+                                    Owner: {x.userEmail}
                                 </Typography>
                             </CardContent>
                         </CardActionArea>

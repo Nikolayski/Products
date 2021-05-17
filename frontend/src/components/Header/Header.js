@@ -25,10 +25,10 @@ const Header = (props) => {
                     {email == '' ?
                         <>
                             <li>
-                                <Link to="/authentication/register">Register</Link>
+                                <Link to="/users/register">Register</Link>
                             </li>
                             <li>
-                                <Link to="/authentication/login">Login</Link>
+                                <Link to="/users/login">Login</Link>
                             </li>
                         </> :
                         <>

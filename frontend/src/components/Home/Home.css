@@ -1,0 +1,46 @@
+.home-wrapper {
+    background: rgb(13, 10, 10);
+    background: linear-gradient(90deg, rgba(13, 10, 10, 1) 0%, rgba(55, 54, 56, 1) 35%, rgba(65, 63, 65, 1) 72%);
+
+}
+
+.home-content {
+    color: whitesmoke;
+    width: 30%;
+    margin:50px auto;
+    text-align: center;
+    padding: 10px;
+    border-radius: 16px;
+    background: rgb(56, 48, 48);
+    background: linear-gradient(90deg, rgba(56, 48, 48, 1) 0%, rgba(77, 76, 78, 1) 35%, rgba(115, 113, 115, 1) 72%);
+}
+.home-wrapper h1{
+    color: white;
+    margin: 0;
+    margin-left: 40%;
+    font-size: 70px;
+}
+
+.home-content h2 {
+    margin: 0;
+    font-size: 50px;
+}
+
+.home-content p {
+    font-size: 30px;
+}
+
+.home-carousel{
+    max-width: 15%;
+    margin: auto;
+}
+
+.home-carousel p{
+    font-size: 30px;
+    color: whitesmoke;
+}
+
+.home-carousel-link{
+    color: whitesmoke;
+}
+

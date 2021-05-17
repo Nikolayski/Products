@@ -4,8 +4,8 @@ import About from './components/About/About';
 import Contact from './components/Contact/Contact';
 import Layout from './components/Layout/Layout';
 import Home from './components/Home/Home';
-import Register from './components/Register/Register';
-import Login from './components/Login/Login';
+import Register from './components/Users/Register';
+import Login from './components/Users/Login';
 import UserContext from './components/Contexts/UserContext';
 import { useEffect, useState } from 'react';
 import Products from './components/Products/Products';
@@ -40,8 +40,8 @@ function App() {
             <Route path="/products/edit/:id" exact={true} component={Edit} />
             <Route path="/myProducts" exact={true} component={MyProducts} />
             <Route path="/products/collections/:type" exact={true} component={CollectionType} />
-            <Route path="/authentication/register" exact={true} component={Register} />
-            <Route path="/authentication/login" exact={true} component={Login} />
+            <Route path="/users/register" exact={true} component={Register} />
+            <Route path="/users/login" exact={true} component={Login} />
           </Switch>
         </Layout>
       </UserContext.Provider>

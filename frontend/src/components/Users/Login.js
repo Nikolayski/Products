@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import './Login.css';
-import UserContext from '../Contexts/UserContext'
+import UserContext from '../Contexts/UserContext';
 import { Button, FormControl, FromControl, Input, InputLabel } from '@material-ui/core';
 
 const Login = (props) => {
@@ -14,7 +14,7 @@ const Login = (props) => {
             email: email.value,
             password: password.value
         }
-        fetch('http://localhost:5000/login', {
+        fetch('http://localhost:5000/users/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(user)

@@ -39,9 +39,10 @@ const Details = props => {
         <article className="product-details">
             <h4 className="product-details-title">{product.theme.toUpperCase()}</h4>
             <img  src={product.image} />
-            <p product-details-model>Model: <i>{product.model}</i></p>
-            <p product-details-description>info: <i>{product.description}</i></p>
-            <p product-details-price>Price: <i>{product.price}$</i></p>
+            <p>Model: <i>{product.model}</i></p>
+            <p>info: <i>{product.description}</i></p>
+            <p>Price: <i>{product.price}$</i></p>
+            <p>Owner: <i>{product.userEmail}</i></p>
         </article>
     )
 }

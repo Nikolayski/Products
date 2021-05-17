@@ -33,7 +33,7 @@ const MyProducts = props => {
             {products.map(x => (
                 <Card key={x._id} className="product-card" style={{ maxWidth: '100%' }}>
                     <CardActionArea>
-                        <CardMedia style={{ height: '200px', objectFit: 'cover' }} image={x.image} title="Contemplative Reptile" />
+                        <CardMedia style={{ height: '300px', objectFit: 'cover' }} image={x.image} title="Contemplative Reptile" />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="h2">
                                 {x.theme}
