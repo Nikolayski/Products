@@ -2,25 +2,24 @@ import { Button, FormControl, Input, InputLabel, TextareaAutosize, TextField } f
 import React from 'react';
 import SelectTheme from '../SelectTheme/SelectTheme';
 import './Add.css';
+import * as ProdService from '../../../services/CopmonentService';
 
 const Add = props => {
 
     const addProductHandler = event => {
         event.preventDefault();
         const [theme, model, image,  price, description] = event.target;
-        fetch('http://localhost:5000/products', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                theme: theme.value,
-                model: model.value,
-                image: image.value,
-                description: description.value,
-                price: price.value,
-                userEmail: localStorage.getItem('email')
-            })
-        })
-            .then(res => res.text())
+
+        var product = {
+            theme: theme.value,
+            model: model.value,
+            image: image.value,
+            description: description.value,
+            price: price.value,
+            userEmail: localStorage.getItem('email')
+        }
+
+            ProdService.AddProduct(product)
             .then(data => props.history.push('/products'))
             .catch(error => console.log(error))
     }

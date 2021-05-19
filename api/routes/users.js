@@ -11,7 +11,7 @@ router.post('/login', function (req, res, next) {
     MongoClient.connect(url, function (err, db) {
         if (err) throw err;
         var dbo = db.db('products-db');
-        dbo.collection('users').findOne({ "email": email }, (err, userResult) => {
+        dbo.collection('users').findOne({ "email": email, "password": password }, (err, userResult) => {
             if (err) throw err;
             console.log(userResult)
             if (userResult) {

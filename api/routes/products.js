@@ -3,7 +3,6 @@ var router = express.Router();
 var MongoClient = require('mongodb').MongoClient;
 var ObjectId = require('mongodb').ObjectId
 var url = "mongodb+srv://nikolayski:Dadada1122@cluster0.g0qsv.mongodb.net/products?retryWrites=true&w=majority";
-var localStorage = require('node-localstorage')
 
 router.get('/', function (req, res, next) {
     MongoClient.connect(url, function (err, db) {

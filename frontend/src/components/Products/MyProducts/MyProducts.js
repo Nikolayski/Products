@@ -2,25 +2,21 @@ import React, { useEffect, useState } from 'react';
 import './MyProducts.css';
 import { Card, Typography, Button, CardMedia, CardContent, CardActions, CardActionArea } from '@material-ui/core'
 import { Link, Redirect } from 'react-router-dom';
-
+import * as ProdService from '../../../services/CopmonentService';
 
 const MyProducts = props => {
     const [products, SetProducts] = useState([]);
     const [IsDeleted, SetIsDeleted] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/products/myproducts/' + localStorage.getItem("email"))
-            .then(res => res.json())
+            ProdService.GetMyProducts(localStorage.getItem("email"))
             .then(data => SetProducts(data))
             .catch(error => console.log(error))
     }, [IsDeleted])
 
     const removeProductHandler = (e, id) => {
         e.preventDefault();
-        fetch('http://localhost:5000/products/' + id, {
-            method: 'DELETE'
-        })
-            .then(res => res.text())
+            ProdService.RemoveProduct(id)
             .then(data => {
                 SetIsDeleted(true);
                 props.history.push('/myProducts')
@@ -36,7 +32,7 @@ const MyProducts = props => {
                         <CardMedia style={{ height: '300px', objectFit: 'cover' }} image={x.image} title="Contemplative Reptile" />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="h2">
-                                {x.theme}
+                                {x.theme.toUpperCase()}
                             </Typography>
                             <Typography variant="body2" color="textSecondary" component="p">
                                 Info:  {x.description}

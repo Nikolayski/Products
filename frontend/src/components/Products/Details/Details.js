@@ -2,16 +2,15 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Details.css';
 import UserContext from '../../../components/Contexts/UserContext';
+import * as ProdService from '../../../services/CopmonentService';
 
 const Details = props => {
 
     const [product, SetProduct] = useState({});
     const [isLoaded, SetIsLoaded] = useState(false);
-    const { email, SetEmail } = useContext(UserContext);
 
     useEffect(() => {
-        fetch('http://localhost:5000/products/' + props.match.params.id)
-            .then(res => res.json())
+        ProdService.GetProduct(props.match.params.id)
             .then(data => {
                 SetProduct(data)
                 SetIsLoaded(true);
@@ -19,14 +18,7 @@ const Details = props => {
             .catch(error => console.log(error))
     }, [])
 
-    const removeProductHandler = (e) => {
-        fetch('http://localhost:5000/products/' + props.match.params.id, {
-            method: 'DELETE'
-        })
-            .then(res => res.text())
-            .then(data => props.history.push('/products'))
-            .catch(error => console.log(error))
-    }
+  
 
     if (!isLoaded) {
         return (
@@ -38,7 +30,7 @@ const Details = props => {
     return (
         <article className="product-details">
             <h4 className="product-details-title">{product.theme.toUpperCase()}</h4>
-            <img  src={product.image} />
+            <img src={product.image} />
             <p>Model: <i>{product.model}</i></p>
             <p>info: <i>{product.description}</i></p>
             <p>Price: <i>{product.price}$</i></p>

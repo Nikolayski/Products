@@ -1,23 +1,23 @@
 import { Button, FormControl, Input, InputLabel, TextareaAutosize } from '@material-ui/core';
 import React, { useContext } from 'react';
 import './Contact.css';
+import * as ProdService from '../../services/CopmonentService';
 
 const Contact = props => {
 
     const contactHandler = e => {
         e.preventDefault();
-        const[email, description] = e.target;
-        fetch('http://localhost:5000/contact', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({email: email.value, description: description.value}),
-          })
-          .then(res => res.text())
-          .then(data => {
-              email.value = '';
-              description.value = '';
-          })
-          .catch(error => console.log(error));
+        const [email, description] = e.target;
+        var contact = {
+            email: email.value,
+            description: description.value
+        }
+        ProdService.AddContact(contact)
+            .then(data => {
+                email.value = '';
+                description.value = '';
+            })
+            .catch(error => console.log(error));
     }
     return (
         <section className="contact-wrapper">
@@ -28,7 +28,7 @@ const Contact = props => {
                     <Input type="email" id="email" name="email" />
                 </FormControl>
                 <FormControl className="form-control">
-                    <TextareaAutosize rowsMin="19" cols="55" type="text"  name="description" placeholder="Description" />
+                    <TextareaAutosize rowsMin="19" cols="55" type="text" name="description" placeholder="Description" />
                 </FormControl>
                 <Button variant="contained" color="primary" type="submit" >Send</Button>
             </form>

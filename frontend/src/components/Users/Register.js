@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import './Register.css';
 import UserContext from '../Contexts/UserContext';
 import {  Button, FormControl, Input, InputLabel} from '@material-ui/core';
+import * as ProdService from '../../services/CopmonentService';
 
 const Register = (props) => {
     const { email, SetEmail } = useContext(UserContext);
@@ -19,12 +20,7 @@ const Register = (props) => {
                 email: email.value,
                 password: password.value
             }
-            fetch('http://localhost:5000/users/register', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(user)
-            })
-                .then(res => res.text())
+              ProdService.Register(user)
                 .then(data => {
                     if (data.toLowerCase() == 'inserted') {
                         localStorage.setItem('email', email.value)

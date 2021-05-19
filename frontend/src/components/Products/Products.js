@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Products.css';
 import { Card, Select, MenuItem, InputLabel, Typography, Button, CardMedia, CardContent, CardActions, CardActionArea } from '@material-ui/core'
 import SelectTheme from './SelectTheme/SelectTheme';
-
+import * as prodServices  from '../../services/CopmonentService';
 
 const Products = props => {
 
@@ -13,8 +13,7 @@ const Products = props => {
 
     useEffect(() => {
         let mounted = true;
-        fetch('http://localhost:5000/products')
-            .then(res => res.json())
+            prodServices.getAll()
             .then(data => {
                 if (mounted) {
                     SetProducts(data)
@@ -52,7 +51,7 @@ const Products = props => {
                             <CardMedia  style={{ height: '300px', objectFit: 'cover' }} image={x.image} title="Contemplative Reptile" />
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="h2">
-                                    {x.theme}
+                                    {x.theme.toUpperCase()}
                                 </Typography>
                                 <Typography variant="body2" color="textSecondary" component="p">
                                     Info:  {x.description}

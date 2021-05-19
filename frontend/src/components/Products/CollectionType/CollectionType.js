@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import SelectTheme from '../SelectTheme/SelectTheme';
 import './CollectionType.css';
-
+import * as ProdService from '../../../services/CopmonentService';
 
 const CollectionType = props => {
 
@@ -11,8 +11,7 @@ const CollectionType = props => {
     const [isMounted, SetIsMounted] = useState(false);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/products/collections/${props.match.params.type}`)
-            .then(res => res.json())
+            ProdService.GetCollection(props.match.params.type)
             .then(data =>  SetlistofTheme(data))
             .catch(error => console.log(error))
 
@@ -20,8 +19,7 @@ const CollectionType = props => {
 
     const themeHandler = e => {
         if(e.target.value != "all"){
-            fetch(`http://localhost:5000/products/collections/${e.target.value}`)
-            .then(res => res.json())
+           ProdService.GetCollection(e.target.value)
             .then(data => {
                 SetlistofTheme(data);
                 props.history.push(`/products/collections/${e.target.value}`)

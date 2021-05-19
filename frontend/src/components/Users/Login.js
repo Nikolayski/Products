@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import './Login.css';
 import UserContext from '../Contexts/UserContext';
 import { Button, FormControl, FromControl, Input, InputLabel } from '@material-ui/core';
+import * as ProdService  from '../../services/CopmonentService';
 
 const Login = (props) => {
     const { email, SetEmail } = useContext(UserContext)
@@ -14,12 +15,7 @@ const Login = (props) => {
             email: email.value,
             password: password.value
         }
-        fetch('http://localhost:5000/users/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(user)
-        })
-            .then(res => res.text())
+            ProdService.Login(user)
             .then(data => {
                 if (data.toLowerCase() == 'inserted') {
                     localStorage.setItem('email', email.value)
@@ -41,11 +37,11 @@ const Login = (props) => {
                     <Input type="email" id="email" name="email" />
                 </FormControl>
                 <FormControl className="form-control">
-                    <InputLabel htmlFor="confirmPassword">Passwrod</InputLabel>
+                    <InputLabel htmlFor="confirmPassword">Password</InputLabel>
                     <Input type="password" id="confirmPassword" name="confirmPassword" />
                 </FormControl>
                 <Button variant="contained" color="primary" type="submit">Login</Button>
-                {!isFreeEmail ? <span style={{ color: 'red' }}>Email doesn't exist!</span> : ''}
+                {!isFreeEmail ? <span style={{ color: 'red' }}>Invalid email/password!</span> : ''}
             </form>
         </section>
     )

@@ -1,14 +1,14 @@
 import { Button, FormControl, Input, InputLabel, TextareaAutosize, TextField } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import './Edit.css';
+import * as ProdService from '../../../services/CopmonentService';
 
 const Edit = props => {
 
     const [product, SetProduct] = useState({});
 
     useEffect(() => {
-        fetch('http://localhost:5000/products/' + props.match.params.id)
-            .then(res => res.json())
+        ProdService.GetProduct(props.match.params.id)
             .then(data => SetProduct(data))
             .catch(error => console.log(error))
     }, [])
@@ -16,26 +16,21 @@ const Edit = props => {
     const editProductHandler = e => {
         e.preventDefault();
         const [model, image, description, price] = e.target;
-        fetch('http://localhost:5000/products', {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                id: props.match.params.id,
-                model: e.target.model.value,
-                image: e.target.image.value,
-                description: e.target.description.value,
-                price: e.target.price.value
-            })
-        })
-            .then(res => res.text())
+        var productToEdit = {
+            id: props.match.params.id,
+            model: e.target.model.value,
+            image: e.target.image.value,
+            description: e.target.description.value,
+            price: e.target.price.value
+        }
+
+        ProdService.EditProduct(productToEdit)
             .then(data => props.history.push('/myProducts'))
             .catch(error => console.log(error))
     }
     return (
         <section className="add-product-wrapper">
             <form onSubmit={editProductHandler} className="add-product-form" >
-
-
                 <label htmlFor="model">
                     Model
                <input type="text" name="model" id="model" defaultValue={product.model} />
