@@ -37,7 +37,7 @@ const Home = (props) => {
                 <h2>Start Selling Online</h2>
                 <p> Fast, Easy, Secure</p>
             </article>
-            <Carousel className="home-carousel">
+            <Carousel showThumbs={false} className="home-carousel">
                 {homeCollection.map(x => (
                     <div key={x._id}>
                         <p>{x.theme.toUpperCase()}</p>
