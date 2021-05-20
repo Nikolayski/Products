@@ -8,6 +8,7 @@ const Details = props => {
 
     const [product, SetProduct] = useState({});
     const [isLoaded, SetIsLoaded] = useState(false);
+    const [HaveError, SetHaveError] = useState(false);
 
     useEffect(() => {
         ProdService.GetProduct(props.match.params.id)
@@ -18,7 +19,8 @@ const Details = props => {
             .catch(error => console.log(error))
     }, [])
 
-  
+
+
 
     if (!isLoaded) {
         return (
@@ -27,15 +29,16 @@ const Details = props => {
             </div>
         )
     }
+ 
     return (
-        <article className="product-details">
-            <h4 className="product-details-title">{product.theme.toUpperCase()}</h4>
-            <img src={product.image} />
-            <p>Model: <i>{product.model}</i></p>
-            <p>info: <i>{product.description}</i></p>
-            <p>Price: <i>{product.price}$</i></p>
-            <p>Owner: <i>{product.userEmail}</i></p>
-        </article>
+            <article className="product-details">
+                <h4 className="product-details-title">{product.theme.toUpperCase()}</h4>
+                <img src={product.image} />
+                <p>Model: <i>{product.model}</i></p>
+                <p>info: <i>{product.description}</i></p>
+                <p>Price: <i>{product.price}$</i></p>
+                <p>Owner: <i>{product.userEmail}</i></p>
+            </article>
     )
 }
 

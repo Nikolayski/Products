@@ -23,11 +23,11 @@ const Products = props => {
             })
             .catch(error => console.log(error))
 
+
         return () => {
             mounted = false
         }
     }, [])
-
 
 
     if (!isLoaded) {

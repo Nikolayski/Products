@@ -1,12 +1,24 @@
 import { Button, FormControl, Input, InputLabel, TextareaAutosize, TextField } from '@material-ui/core';
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import SelectTheme from '../SelectTheme/SelectTheme';
 import './Add.css';
 import * as ProdService from '../../../services/CopmonentService';
+import UserContext from '../../Contexts/UserContext';
 
 const Add = props => {
+    const { email, SetEmail } = useContext(UserContext);
+
+        useEffect(() => {
+            if(email == ''){
+                    props.history.push('/users/login');
+            }
+        },[])
+  
 
     const addProductHandler = event => {
+        if(email ==''){
+            props.history.push('/users/login');
+        }
         event.preventDefault();
         const [theme, model, image,  price, description] = event.target;
 

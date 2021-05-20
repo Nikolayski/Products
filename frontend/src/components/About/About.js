@@ -24,13 +24,9 @@ const About = (props) => {
                 <h2>Earn Easy Money</h2>
                 <p className="about-info-content">
                     If asked to describe the ideal product to sell, you might say something like “large profit margin,” or “easy to produce” or “high market demand.”
-
                     Or you might say “socks.” I don’t know you.
-
                     But the first three are all attractive ways to describe a business model – because they can get you quite a bit of revenue at little cost.
-
                     If you like the sound of that, information products may be for you. These are products that provide customers with some sort of information, often educational. Think ebooks or online courses.
-
                     With the right information product idea, you can stand to make a lot of money—and in some cases it can be the whole your business.
                 </p>
             </article>
