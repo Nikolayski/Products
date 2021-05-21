@@ -1,6 +1,6 @@
-#Project Online Products
+# Project Online Products
 
- # Node js
- # React
- # OpenWeatherApi
- # Material UI
+Node js
+React
+OpenWeatherApi
+Material UI
