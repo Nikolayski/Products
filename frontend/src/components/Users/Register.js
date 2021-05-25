@@ -51,15 +51,15 @@ const Register = (props) => {
                     <FormControl className="form-control">
                         <InputLabel htmlFor="password">Password</InputLabel>
                         <Input type="password" id="password" name="password" />
-                        {passwordError ? <span style={{ color: 'red' }}   >{passwordError}</span> : ''}
+                        {passwordError ? <span style={{ color: 'red' }} className="reg-span-error"  >{passwordError}</span> : ''}
                     </FormControl>
                     <FormControl className="form-control">
                         <InputLabel htmlFor="confirmPassword">Confirm Password</InputLabel>
                         <Input type="password" id="confirmPassword" name="confirmPassword" />
-                        {passwordError ? <span style={{ color: 'red' }}>{passwordError}</span> : ''}
+                        {passwordError ? <span style={{ color: 'red' }} className="reg-span-error">{passwordError}</span> : ''}
                     </FormControl>
-                    <Button variant="contained" color="primary" type="submit">Register</Button>
-                    {isFreeEmail ? <span style={{ color: 'red' }}>Email is already taken!</span> : ''}
+                    <Button className="register-button" variant="contained" color="primary" type="submit">Register</Button>
+                    {isFreeEmail ? <span style={{ color: 'red' }} className="reg-span-email-error">Email is already taken!</span> : ''}
                 </form>
             </section>
 

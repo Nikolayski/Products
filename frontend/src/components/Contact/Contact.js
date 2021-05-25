@@ -1,9 +1,10 @@
 import { Button, FormControl, Input, InputLabel, TextareaAutosize } from '@material-ui/core';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './Contact.css';
 import * as ProdService from '../../services/CopmonentService';
 
 const Contact = props => {
+    const [contactMessage, SetContactMessage] = useState('');
 
     const contactHandler = e => {
         e.preventDefault();
@@ -16,6 +17,7 @@ const Contact = props => {
             .then(data => {
                 email.value = '';
                 description.value = '';
+                SetContactMessage("Successfully sent!")
             })
             .catch(error => console.log(error));
     }
@@ -28,9 +30,10 @@ const Contact = props => {
                     <Input type="email" id="email" name="email" />
                 </FormControl>
                 <FormControl className="form-control">
-                    <TextareaAutosize rowsMin="19" cols="55" type="text" name="description" placeholder="Description" />
+                    <TextareaAutosize id="textarea" rowsMin="19" cols="55" type="text" name="description" placeholder="Description" />
                 </FormControl>
-                <Button variant="contained" color="primary" type="submit" >Send</Button>
+                <Button className="contact-form-button" variant="contained" color="primary" type="submit" >Send</Button>
+               <strong className="contact-form-message" style={{textAlign:'center', marginTop:'15px', fontSize:'20px'}}>{contactMessage}</strong>
             </form>
             <img src='https://qph.fs.quoracdn.net/main-qimg-cac801530f86c7d4d3923cce62cb4233.webp' />
         </section>

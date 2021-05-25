@@ -16,9 +16,6 @@ const Add = props => {
   
 
     const addProductHandler = event => {
-        if(email ==''){
-            props.history.push('/users/login');
-        }
         event.preventDefault();
         const [theme, model, image,  price, description] = event.target;
 
