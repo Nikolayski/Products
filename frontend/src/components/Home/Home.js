@@ -47,7 +47,6 @@ const Home = (props) => {
                 ))}
             </Carousel>
             <article className="home-info">
-                <h2>Solution for every person</h2>
                 <article className="home-info-parts">
                     <article className="home-info-part">
                         <img src="https://iasbh.tmgrup.com.tr/88bb76/1200/627/0/0/1408/736?u=https://isbh.tmgrup.com.tr/sbh/2021/02/24/imge-nedir-imge-ornekleri-ile-konu-anlatimi-1614170235319.jpg" />

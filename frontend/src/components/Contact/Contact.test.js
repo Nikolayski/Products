@@ -26,7 +26,7 @@ describe('Contact Component', () => {
         expect(document.getElementById('textarea').value).toBe("Hello guys.");
     })
 
-    test('Check', async () => {
+    test('Check sent message', async () => {
 
         render(
             <BrowserRouter>
