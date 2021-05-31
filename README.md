@@ -1,6 +1,6 @@
 # Project Online Products
 
-# Node js, React, Material UI, OpenWeatherApi.
+# Node js, React, Material UI.
 
 <img align="left" width="600" height="300" src="https://user-images.githubusercontent.com/74212719/120190853-d3ea7780-c221-11eb-8158-52f3ebdaefec.jpg">
 <br />
