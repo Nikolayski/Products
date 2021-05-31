@@ -31,7 +31,7 @@ export const RemoveProduct = (id) => {
               method: 'DELETE'
     })
         .then(res => res.text())
-        .catch(eror => console.log(error));
+        .catch(error => console.log(error));
 }
 
 export const GetProduct = (id) => {
